@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -20,20 +22,16 @@ class CategoryController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('admin.category.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(CategoryRequest $request): RedirectResponse
     {
-        //
+        Category::create($request->validated() + ['user_id' => auth()->id()]);
+
+        return redirect()->route('admin.index');
     }
 
     /**

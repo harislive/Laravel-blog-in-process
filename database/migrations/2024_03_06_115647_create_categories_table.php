@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('category_name');
             $table->string('slug');
+            $table->string('status')->default('avaliable');
             $table->unsignedSmallInteger('user_id');
             $table->timestamps();
         });

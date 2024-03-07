@@ -1,9 +1,9 @@
 <x-admin-layout>
-    <div class="card container">
+    <div class="card">
         <div class="card-heade">
             <div class="d-flex justify-content-between">
                 <h2>Product List</h2>
-                <a href="" class="btn btn-warning">Add Blogs</a>
+                <a href="{{ route('admin.create') }}" class="btn btn-warning">Add Blogs</a>
             </div>
         </div>
         <div class="card-body">

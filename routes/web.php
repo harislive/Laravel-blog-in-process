@@ -27,6 +27,8 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth','admin'])->name('admin.')->prefix('admin')->group(function(){
     Route::get('/dashboard',[AdminController::class,'index'])->name('dashboard');
     Route::get('/index',[CategoryController::class,'index'])->name('index');
+    Route::get('/create',[CategoryController::class,'create'])->name('create');
+    Route::post('create',[CategoryController::class,'store'])->name('category.store');
 });
 
 require __DIR__.'/auth.php';
